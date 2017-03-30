@@ -17,10 +17,9 @@
   },
   "dependencies": {
     "babel-runtime": "^6.0.0",
-    "live-server": "^1.0.0"
+    "typhonjs-live-server": "latest"
   },
   "devDependencies": {
-    "tjsdoc-test-utils": "git+https://git@github.com/typhonjs-node-tjsdoc/tjsdoc-test-utils.git",
     "typhonjs-config-eslint": "^0.5.0",
     "typhonjs-npm-build-test": "^0.6.0"
   },
@@ -37,7 +36,7 @@
     ".tjsdocrc",
     "AUTHORS.md"
   ],
-  "main": "dist/plugin.js",
+  "main": "dist/TJSDocLiveServer.js",
   "bugs": {
     "url": "https://github.com/typhonjs-node-tjsdoc/tjsdoc/issues"
   }
