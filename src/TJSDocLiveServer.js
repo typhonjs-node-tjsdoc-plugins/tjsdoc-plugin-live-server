@@ -34,8 +34,13 @@ export default class TJSDocLiveServer
     */
    static onPluginLoad(ev)
    {
-      ev.eventbus.trigger('plugins:add',
-       { name: 'typhonjs-live-server', instance: LiveServer, options: ev.pluginOptions });
+      const hasPlugin = ev.eventbus.triggerSync('plugins:has:plugin', 'typhonjs-live-server');
+
+      if (!hasPlugin)
+      {
+         ev.eventbus.trigger('plugins:add',
+          { name: 'typhonjs-live-server', instance: LiveServer, options: ev.pluginOptions });
+      }
    }
 
    /**
