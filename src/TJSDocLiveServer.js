@@ -20,7 +20,7 @@ export default class TJSDocLiveServer
          const options =
          {
             ignore: 'css, image, script',
-            root: path.resolve(ev.data.config.destination)
+            root: path.resolve(ev.data.mainConfig.destination)
          };
 
          LiveServer.start(options);
