@@ -38,7 +38,7 @@ export default class TJSDocLiveServer
 
       if (!hasPlugin)
       {
-         await ev.eventbus.triggerAsync('plugins:add:async',
+         await ev.eventbus.triggerAsync('plugins:async:add',
           { name: 'typhonjs-live-server', instance: LiveServer, options: ev.pluginOptions });
       }
    }
