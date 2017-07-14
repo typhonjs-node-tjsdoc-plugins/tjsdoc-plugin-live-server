@@ -13,7 +13,7 @@ export default class TJSDocLiveServer
     *
     * @param {PluginEvent} ev - The plugin event.
     */
-   static onComplete(ev)
+   static onRuntimeCompleteAsync(ev)
    {
       if (!LiveServer.isRunning)
       {
@@ -32,13 +32,13 @@ export default class TJSDocLiveServer
     *
     * @param {PluginEvent} ev - The plugin event.
     */
-   static onPluginLoad(ev)
+   static async onPluginLoad(ev)
    {
       const hasPlugin = ev.eventbus.triggerSync('plugins:has:plugin', 'typhonjs-live-server');
 
       if (!hasPlugin)
       {
-         ev.eventbus.trigger('plugins:add',
+         await ev.eventbus.triggerAsync('plugins:add:async',
           { name: 'typhonjs-live-server', instance: LiveServer, options: ev.pluginOptions });
       }
    }
@@ -46,7 +46,7 @@ export default class TJSDocLiveServer
    /**
     * Handle any housekeeping when TJSDoc shuts down.
     */
-   static onShutdown()
+   static onRuntimeShutdownAsync()
    {
       LiveServer.shutdown();
    }
